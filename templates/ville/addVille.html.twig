@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Ajout Ville {% endblock %}
+
+{% block body %}
+        <div class="row formulaire" data-aos="fade-up" data-aos-delay="100">
+            <div class="section-title">
+                <h3> INFORMATION Société</h3>
+            </div>
+              {{form_start(formVille, {'attr': {'class':''}})}}
+              <div class="form-group">
+              {{form_row(formVille.libelle,{'label' : 'Nom de la ville', 'attr' : {'class':'form-control'}})}}
+              </div>
+              <div class="form-group">
+              {{form_row(formVille.codepostal,{'label' : 'Code Postal', 'attr' : {'class':'form-control'}})}}
+              </div> <br>
+              {% if editmode %}
+              <div class="text-center"><button type="submit">Modifier</button></div>
+              {% else %}
+                <div class="text-center"><button type="submit">Ajouter</button></div>
+              {% endif %}             
+              
+             {{form_end(formVille)}}
+        </div>
+{% endblock %}

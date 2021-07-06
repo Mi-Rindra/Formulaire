@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Informations{% endblock %}
+
+{% block body %}
+<div class="container" data-aos="fade-up">
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4">           
+
+          </div>
+          <div class="col-lg-4" >
+          <div class="section-title">
+          <h2>Ajouter des Informations</h2>
+        </div>
+            <div class="row">
+                <select  name="information" class="btn btn-info information">
+                    <option value="" >Selectionner une Type d'information</option>
+                    <option value="dirigeant"  id="dirigeant">Dirigeant</option>
+                    <option value="societe"  id="societe">Societe</option>
+                </select>
+            </div>
+            <div class="row" id="formulaire">
+            </div>
+          <div class="section-title">
+          <h2>Listes des Informations</h2>
+        </div>
+
+           </div>
+
+           <div class="col-lg-4">
+
+          </div>
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+        <table class="table table-striped table-advance table-hover">
+               <p><h4><i class=""></i>Les Sociétés</h4></p>
+                <hr>
+                <thead>
+                  <tr>
+                    <th></i>Id</th>
+                    <th></i>Nom</th>
+                     <th></i>Description</th>
+                    <th></i>Type</th>
+                    <th></i> Code Postal 
+                    <button class="btn btn-success btn-xs" id="addcode">+</button>
+                    </th>
+                    <th>Ville
+                    <button type="button" class="btn btn-success btn-xs" id="addville">+</button>
+                    </th>
+                    <th> Action </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for societe in societes %}
+                  <tr>
+                    <td>{{societe.id}}</td>
+                    <td>{{societe.nom}}</td>
+                    <td>{{societe.description}}</td>
+                    <td>
+                     {% for type in societe.type %}
+                     {{type.nom}},
+                     {% endfor %}
+                    <td>{{societe.codepostal.libelle}}</td>
+                    <td>{{societe.ville.libelle}}</td>
+                    <td> <a  class="btn btn-warning btn-xs editSociete" id="editSociete{{societe.id}}" href="{{path('editSociete',{'id':societe.id})}}"><i class="bi-pencil"></i></a>
+                     <a  class="btn btn-danger btn-xs" id="removeSociete{{societe.id}}" href="{{path('removeSociete',{'id':societe.id})}}"><i class="bi-trash"></i></a></td>
+                   </tr>
+                {% endfor %}
+                </tbody>
+              </table>      
+      </div>
+
+    <div class="row" id="test" data-aos="fade-up" data-aos-delay="100">
+        <table class="table table-striped table-advance table-hover">
+               <p> <h4><i class="fa fa-angle-right"></i>Les Dirigeants</h4></p>
+                <hr>
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                     <th>Prenom</th>
+                    <th>Sexe</th>
+                    <th> Adresse E-mail</th>
+                    <th> Action </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for dirigeant in dirigeants %}
+                  <tr>
+                    <td>{{dirigeant.id}}</td>
+                    <td>{{dirigeant.nom}}</td>
+                    <td>{{dirigeant.prenom}}</td>
+                    <td>{{dirigeant.sexe}}</td>
+                    <td>{{dirigeant.email}}</td>
+                    <td> <a  class="btn btn-warning btn-xs editDirigeant" id="editDirigeant{{dirigeant.id}}" href="{{path('editDirigeant',{'id':dirigeant.id})}}#formulaire"><i class="bi-pencil"></i></a>
+                    <a  class="btn btn-danger btn-xs" id="removeDirigeant{{dirigeant.id}}" href="{{path('removeDirigeant',{'id':dirigeant.id})}}"><i class="bi-trash"></i></a></td>
+                  
+                   </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+        </div>
+</div>
+{% endblock %}

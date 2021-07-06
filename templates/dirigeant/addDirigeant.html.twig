@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Ajout Dirigeant {% endblock %}
+
+{% block body %}
+        <div class="row formulaire" data-aos="fade-up" data-aos-delay="100">
+                <div class="section-title">
+                  <h3>Information Dirigeant</h3>
+                 </div>
+              {{form_start(formDirigeant, {'attr': {'class':''}})}}
+
+
+              <div class="form-group">
+              {{form_row(formDirigeant.nom,{'label' : 'Nom', 'attr' : {'class':'form-control'}})}}
+              </div>
+              <div class="form-group">
+              {{form_row(formDirigeant.prenom,{'label' : 'Prenom', 'attr' : {'class':'form-control'}})}}
+              </div>
+              <div class="form-group">
+              {{form_row(formDirigeant.sexe,{'label' : 'Sexe', 'attr' : {'class':'form-control'}})}}
+              </div>
+              <div class="form-group">
+              {{form_row(formDirigeant.email,{'label' : 'Adresse E-mail', 'attr' : {'class':'form-control'}})}}
+              </div> <br>
+              {% if editmode %}
+              <input type="hidden" value="{{dirigeant.id}}" name="target">
+              <div class="text-center"><button type="submit">Modifier</button></div>
+              {% else %}
+                <div class="text-center"><button type="submit" id="tess">Ajouter</button></div>
+              {% endif %}             
+              
+             {{form_end(formDirigeant)}}
+      </div>
+{% endblock %}

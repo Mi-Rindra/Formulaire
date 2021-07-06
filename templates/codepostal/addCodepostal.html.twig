@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Ajout Code Postal {% endblock %}
+
+{% block body %}
+        <div class="row formulaire" data-aos="fade-up" data-aos-delay="100">
+          <div class="section-title">
+                <h3> Ajouter un code postal</h3>
+            </div>
+              {{form_start(formCodepostal, {'attr': {'class':'php-email-form'}})}}
+              <div class="form-group">
+              {{form_row(formCodepostal.libelle,{'label' : 'Code Postal', 'attr' : {'class':'form-control'}})}}
+              </div> <br>
+              {% if editmode %}
+              <div class="text-center"><button type="submit">Modifier</button></div>
+              {% else %}
+                <div class="text-center"><button type="submit">Ajouter</button></div>
+              {% endif %}             
+              
+             {{form_end(formCodepostal)}}
+      </div>
+{% endblock %}

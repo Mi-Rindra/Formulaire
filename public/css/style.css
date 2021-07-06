@@ -1,0 +1,73 @@
+.container{
+  margin-top:50px;
+}
+
+.information{
+  color:white;
+  margin-bottom: 15px;
+}
+
+.section-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+
+  .section-title h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #e03a3c;
+    bottom: 0;
+    left: calc(50% - 25px);
+  }
+
+  .section-title h3 {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  
+  .section-title h3::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #e03a3c;
+    bottom: 0;
+    left: calc(50% - 25px);
+  }
+
+  .formulaire{
+    box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+    padding: 30px;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .formulaire button[type="submit"] {
+    background: #e03a3c;
+    border: 0;
+    padding: 10px 32px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+  }
+  
+  .formulaire button[type="submit"]:hover {
+    background: #e35052;
+  }
+  
