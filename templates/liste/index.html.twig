@@ -15,8 +15,8 @@
             <div class="row">
                 <select  name="information" class="btn btn-info information">
                     <option value="" >Selectionner une Type d'information</option>
-                    <option value="dirigeant"  id="dirigeant">Dirigeant</option>
-                    <option value="societe"  id="societe">Societe</option>
+                    <option value="dirigeant"  id="dirigeant" data-path="{{path('addDirigeant')}}">Dirigeant</option>
+                    <option value="societe"  id="societe" data-path="{{path('addSociete')}}">Societe</option>
                 </select>
             </div>
             <div class="row" id="formulaire">
@@ -43,10 +43,10 @@
                      <th></i>Description</th>
                     <th></i>Type</th>
                     <th></i> Code Postal 
-                    <button class="btn btn-success btn-xs" id="addcode">+</button>
+                    <button class="btn btn-success btn-xs" data-path="{{path('addCodepostal')}}" id="addcode">+</button>
                     </th>
                     <th>Ville
-                    <button type="button" class="btn btn-success btn-xs" id="addville">+</button>
+                    <button type="button" data-path="{{path('addVille')}}" class="btn btn-success btn-xs" id="addville">+</button>
                     </th>
                     <th> Action </th>
                   </tr>

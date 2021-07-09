@@ -1,8 +1,9 @@
 $(document).ready(function(){
     $("#societe").click(function(){
+        var url = $("#societe").attr("data-path");
         $.ajax({
            type: "post",
-           url: "http://localhost:8005/societe/ajout",
+           url: url,
            success: function(response) {
                var formulaire = response;
                console.log(formulaire);
@@ -15,9 +16,10 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#dirigeant").click(function(){
+        var url = $("#dirigeant").attr("data-path");
         $.ajax({
            type: "post",
-           url: "http://localhost:8005/dirigeant/ajout",
+           url: url,
            success: function(response) {
                var formulaire = response;
                console.log(formulaire);
@@ -30,10 +32,11 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#addcode").click(function(){
+        var url = $("#addcode").attr("data-path");
         $('html,body').animate({scrollTop: $("#formulaire").offset().top}, 'slow'      );
         $.ajax({
            type: "post",
-           url: "http://localhost:8005/codepostal/ajout",
+           url: url ,
            success: function(response) {
                var formulaire = response;
                console.log(formulaire);
@@ -46,10 +49,11 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#addville").click(function(){
+        var url = $("#addville").attr("data-path");
         $('html,body').animate({scrollTop: $("#formulaire").offset().top}, 'slow'      );
         $.ajax({
            type: "post",
-           url: "http://localhost:8005/ville/ajout",
+           url: url,
            success: function(response) {
                var formulaire = response;
                console.log(formulaire);
@@ -68,7 +72,7 @@ $(document).ready(function(){
         $('html,body').animate({scrollTop: $("#formulaire").offset().top}, 'slow'      );
         $.ajax({
             type: "post",
-            url: "http://localhost:8005"+url,
+            url: url,
             success: function(response) {
                 var editDirigeant = response;
                 $("#formulaire").html(editDirigeant);
@@ -85,7 +89,7 @@ $(document).ready(function(){
         $('html,body').animate({scrollTop: $("#formulaire").offset().top}, 'slow'      );
         $.ajax({
             type: "post",
-            url: "http://localhost:8005"+url,
+            url: url,
             success: function(response) {
                 var editSociete = response;
                 $("#formulaire").html(editSociete);
