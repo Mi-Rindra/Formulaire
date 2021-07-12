@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Ville;
 use App\Form\VilleType;
+use App\Entity\Codepostal;
+use App\Repository\VilleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -53,4 +55,17 @@ class VilleController extends AbstractController
             'editmode' => $ville->getId()!=NULL
         ]);
     }
+
+    /*
+      @Route('/ville/liste/{cp}', name="listeVille")
+     
+    public function listeVille(VilleRepository $reposVille, Codepostal $codepostal){
+        $codepostal = new Codepostal(3);
+        $liste = $reposVille->findOneByCodepostal($codepostal->getId());
+        dd($liste);
+        return $this->render('liste/test.hmtl.twig',[
+            'cp' => $codepostal
+        ]);
+
+    } */
 }

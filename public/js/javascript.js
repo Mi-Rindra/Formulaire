@@ -97,3 +97,18 @@ $(document).ready(function(){
         });
     })
  });
+
+ $(document).on('change','#societe_codepostal', function(){
+    var test = $("#societe_codepostal").val();
+    url = "/societe/codeVille/"+test 
+        $.ajax({
+            type: "post",
+            url: url,
+            success: function(response) {
+                var villes = response;
+                $("#ville").removeClass("cacher");
+                $("#societe_ville").html(villes);
+            }
+        });
+    });
+

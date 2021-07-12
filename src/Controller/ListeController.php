@@ -11,8 +11,10 @@ use App\Form\SocieteType;
 use App\Entity\Codepostal;
 use App\Form\DirigeantType;
 use App\Form\CodepostalType;
+use App\Repository\VilleRepository;
 use App\Repository\SocieteRepository;
 use App\Repository\DirigeantRepository;
+use App\Repository\CodepostalRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,7 +34,9 @@ class ListeController extends AbstractController
         Codepostal $codepostal = NULL,
         Ville $ville = NULL,
         DirigeantRepository $reposDirigeant,
-        SocieteRepository $reposSociete
+        SocieteRepository $reposSociete,
+        VilleRepository $reposVille,
+        CodepostalRepository $reposCodepostal
     ):Response
     {
         if(isset($_POST['target'])){
@@ -47,6 +51,11 @@ class ListeController extends AbstractController
 
 
         if($formSociete->isSubmitted() && $formSociete->isValid()){
+            /*$test = $formSociete['codepostal']->getData();
+            $val = $reposCodepostal->find($test);
+            dd($val->getVIlles());
+            $value = $reposVille->findBy(array("codepostal" => $test));
+            dd($value); */
             $societe->setCreatedat(new Datetime());
             $manager->persist($societe);
             $manager->flush();

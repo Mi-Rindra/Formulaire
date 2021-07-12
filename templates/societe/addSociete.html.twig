@@ -17,13 +17,16 @@
               <div class="form-group">
               {{form_row(formSociete.codepostal,{'label' : 'Code Postal', 'attr' : {'class':'form-control'}})}}
               </div>
-               <div class="form-group">
-              {{form_row(formSociete.ville,{'label' : 'Ville', 'attr' : {'class':'form-control'}})}}
-              </div> <br>
               {% if editmode %}
+              <div class="form-group" id="ville">
+              {{form_row(formSociete.ville,{'label' : 'Ville', 'attr' : {'class':'form-control ', 'id': 'ville'}})}}
+              </div> <br>
               <input type="hidden" value="{{societe.id}}" name="target">
               <div class="text-center"><button type="submit">Modifier</button></div>
               {% else %}
+              <div class="form-group cacher" id="ville">
+              {{form_row(formSociete.ville,{'label' : 'Ville', 'attr' : {'class':'form-control ', 'id': 'ville'}})}}
+              </div> <br>
                 <div class="text-center"><button type="submit">Ajouter</button></div>
               {% endif %}             
               

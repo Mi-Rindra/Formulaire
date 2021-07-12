@@ -5,6 +5,8 @@ namespace App\Controller;
 use Datetime;
 use App\Entity\Societe;
 use App\Form\SocieteType;
+use App\Repository\VilleRepository;
+use App\Repository\CodepostalRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -58,12 +60,29 @@ class SocieteController extends AbstractController
         ]);
     }
 
-        /**
+    /**
      * @Route("/societe/remove/{id}", name="removeSociete")
      */
     public function removeSociete(Societe $societe, Request $request , EntityManagerInterface $manager){
         $manager->remove($societe);
         $manager->flush();
         return $this->redirectToRoute('liste');
+    }
+
+    /**
+     * @Route("/societe/codeVille/{id}", name="codeVille")
+     */
+    public function codeVille(
+        Request $request,
+        EntityManagerInterface $manager,
+        VilleRepository $reposVille
+        ){
+        
+        $IdCodepostal = $request->attributes->get('id');
+        $villes = $reposVille->findByCodepostal($IdCodepostal);
+        return $this->render('liste/codepostal.html.twig',[
+            'controller_name' => 'addsociete',
+            'villes' => $villes
+        ]);
     }
 }
